@@ -4,6 +4,7 @@ import './CheckoutPage.css'
 
 export function CheckoutPage() {
   return (
+    
     <>
       <title>Checkout</title>
 
