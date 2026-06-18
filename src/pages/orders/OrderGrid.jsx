@@ -1,29 +1,9 @@
-import axios from "axios";
 import dayjs from "dayjs";
-import { useState, useEffect, Fragment } from "react";
-import { Header } from "../components/Header";
-import "./OrdersPage.css";
+import { Fragment } from "react";
 
-
-export function OrdersPage({ cart }) {
-  let [orders, setOrders] = useState([]);
-
-  useEffect(() => {
-    axios.get("/api/orders?expand=products").then((response) => {
-      setOrders(response.data);
-    });
-  }, []);
-
-  return (
-    <>
-      <title>Orders</title>
-
-      <Header cart={cart} />
-
-      <div className="orders-page">
-        <div className="page-title">Your Orders</div>
-
-        <div className="orders-grid">
+export function OrderGrid({orders}){
+    return(
+                <div className="orders-grid">
           {orders.map((order) => {
             return(
             <div key={order.id} className="order-container">
@@ -87,7 +67,5 @@ export function OrdersPage({ cart }) {
           })}
           
         </div>
-      </div>
-    </>
-  );
+    )
 }
